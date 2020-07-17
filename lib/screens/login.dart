@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:bodycomposition/services/authentication.dart';
+import 'package:lottie/lottie.dart';
+import 'package:bodycomposition/Utils/HexColor.dart';
 
 class LoginSignupPage extends StatefulWidget {
   LoginSignupPage({this.auth, this.loginCallback});
@@ -35,7 +37,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   void validateAndSubmit() async {
     setState(() {
       _errorMessage = "";
-      _isLoading = true;
+      _isLoading = false;
     });
     if (validateAndSave()) {
       String userId = "";
@@ -90,6 +92,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      backgroundColor: HexColor.fromHex('#d5eff5'),
         body: Stack(
           children: <Widget>[
             _showForm(),
@@ -116,6 +119,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
           child: new ListView(
             shrinkWrap: true,
             children: <Widget>[
+              showLottieAnimation(),
               showEmailInput(),
               showPasswordInput(),
               showPrimaryButton(),
@@ -143,6 +147,20 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
     }
   }
 
+  Widget showLottieAnimation() {
+    return Container(
+      padding: const EdgeInsets.only(top: 75),
+      child: Center(
+
+        child: Lottie.asset('assets/images/login_animation.json',
+            width: 100,
+            height: 150,
+            fit: BoxFit.fitHeight)
+      ),
+    );
+
+  }
+
   Widget showLogo() {
     return new Hero(
       tag: 'hero',
@@ -159,7 +177,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
 
   Widget showEmailInput() {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0.0, 100.0, 0.0, 0.0),
+      padding: const EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 0.0),
       child: new TextFormField(
         maxLines: 1,
         keyboardType: TextInputType.emailAddress,
@@ -205,9 +223,9 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
 
   Widget showPrimaryButton() {
     return new Padding(
-        padding: EdgeInsets.fromLTRB(0.0, 45.0, 0.0, 10.0),
+        padding: EdgeInsets.fromLTRB(22.0, 45.0, 22.0, 10.0),
         child: SizedBox(
-          height: 50.0,
+          height: 55.0,
           child: new RaisedButton(
             elevation: 5.0,
             shape: new RoundedRectangleBorder(
