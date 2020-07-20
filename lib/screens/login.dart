@@ -92,7 +92,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: HexColor.fromHex('#d5eff5'),
+      backgroundColor: HexColor.fromHex('#CFF9FE'),
         body: Stack(
           children: <Widget>[
             _showForm(),
@@ -151,7 +151,6 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
     return Container(
       padding: const EdgeInsets.only(top: 75),
       child: Center(
-
         child: Lottie.asset('assets/images/login_animation.json',
             width: 100,
             height: 150,
