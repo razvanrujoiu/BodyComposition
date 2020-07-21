@@ -5,6 +5,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
+import 'package:lottie/lottie.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.auth, this.userId, this.logoutCallback})
@@ -49,9 +50,10 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: HexColor.fromHex('#CFF9FE'),
       body: Center(
         child: ListView(
-          padding: EdgeInsets.fromLTRB(0.0, 150.0, 0.0, 0.0),
+          padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
           shrinkWrap: true,
           children: <Widget>[
+            showLottieAnimation(),
             showAgeInput(),
             showHeightInput(),
             showWeightInput(),
@@ -73,7 +75,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget showAgeInput() {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(44.0, 0.0, 44.0, 0.0),
+      padding: const EdgeInsets.fromLTRB(44.0, 40.0, 44.0, 0.0),
       child: TextFormField(
         maxLines: 1,
         keyboardType: TextInputType.number,
@@ -150,6 +152,15 @@ class _HomePageState extends State<HomePage> {
               child: Text('Next'),
               onPressed: saveData),
         ),
+    );
+  }
+
+  Widget showLottieAnimation() {
+    return Container(
+      padding: const EdgeInsets.only(top: 75),
+      child: Center(
+          child: Lottie.asset('assets/images/scale_heart.json',
+              width: 150, height: 150, fit: BoxFit.fill)),
     );
   }
 
