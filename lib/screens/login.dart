@@ -92,7 +92,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: HexColor.fromHex('#CFF9FE'),
+        backgroundColor: HexColor.fromHex('#CFF9FE'),
         body: Stack(
           children: <Widget>[
             _showForm(),
@@ -151,13 +151,9 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
     return Container(
       padding: const EdgeInsets.only(top: 75),
       child: Center(
-        child: Lottie.asset('assets/images/login_animation.json',
-            width: 100,
-            height: 150,
-            fit: BoxFit.fitHeight)
-      ),
+          child: Lottie.asset('assets/images/login_animation.json',
+              width: 100, height: 150, fit: BoxFit.fitHeight)),
     );
-
   }
 
   Widget showLogo() {
@@ -181,12 +177,15 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
         maxLines: 1,
         keyboardType: TextInputType.emailAddress,
         autofocus: false,
+        textAlign: TextAlign.center,
         decoration: new InputDecoration(
-            hintText: 'Email',
-            icon: new Icon(
-              Icons.mail,
-              color: Colors.grey,
-            )),
+          hintText: 'Email',
+          icon: new Icon(
+            Icons.mail,
+            color: Colors.grey,
+          ),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(50)),
+        ),
         validator: (value) => value.isEmpty ? 'Email can\'t be empty' : null,
         onSaved: (value) => _email = value.trim(),
       ),
@@ -200,12 +199,17 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
         maxLines: 1,
         obscureText: true,
         autofocus: false,
+        textAlign: TextAlign.center,
         decoration: new InputDecoration(
             hintText: 'Password',
             icon: new Icon(
               Icons.lock,
               color: Colors.grey,
-            )),
+            ),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(50)
+          ),
+        ),
         validator: (value) => value.isEmpty ? 'Password can\'t be empty' : null,
         onSaved: (value) => _password = value.trim(),
       ),

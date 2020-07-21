@@ -23,7 +23,9 @@ class _HomePageState extends State<HomePage> {
   final FirebaseDatabase _database = FirebaseDatabase.instance;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
+  String _age;
   String _height;
+  String _weight;
 
   @override
   void initState() {
@@ -47,8 +49,14 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: HexColor.fromHex('#CFF9FE'),
       body: Center(
         child: ListView(
-          padding: EdgeInsets.fromLTRB(24, 150, 24.0, 0.0),
-          children: <Widget>[],
+          padding: EdgeInsets.fromLTRB(0.0, 150.0, 0.0, 0.0),
+          shrinkWrap: true,
+          children: <Widget>[
+            showAgeInput(),
+            showHeightInput(),
+            showWeightInput(),
+            showSubmitButton()
+          ],
         ),
       ),
 //        appBar: new AppBar(
@@ -63,29 +71,74 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget showHeightInput() {
+  Widget showAgeInput() {
     return Padding(
       padding: const EdgeInsets.fromLTRB(44.0, 0.0, 44.0, 0.0),
       child: TextFormField(
         maxLines: 1,
         keyboardType: TextInputType.number,
         autofocus: false,
+        textAlign: TextAlign.center,
         decoration: InputDecoration(
-          hintText: 'Input your height',
-          icon: Icon(
-            Icons.accessibility,
-            color: Colors.grey,
+          hintText: 'Age',
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30)
+          ),
+          contentPadding: new EdgeInsets.symmetric(vertical: 18.0, horizontal: 0.0),
+        ),
+        validator: (value) => value.isEmpty ? 'Please fill the height field' : null,
+        onSaved: (value) => _height = value.trim(),
+      ),
+    );
+  }
+
+
+  Widget showHeightInput() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(44.0, 22.0, 44.0, 0.0),
+      child: TextFormField(
+
+        maxLines: 1,
+        keyboardType: TextInputType.number,
+        autofocus: false,
+        textAlign: TextAlign.center,
+        decoration: InputDecoration(
+          hintText: 'Height',
+          contentPadding: new EdgeInsets.symmetric(vertical: 18.0, horizontal: 0.0),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30)
           ),
         ),
-        validator: (value) => value.isEmpty? 'Please fill the height field' : null,
+        validator: (value) => value.isEmpty ? 'Please fill the height field' : null,
         onSaved: (value) => _height = value.trim(),
+      ),
+    );
+  }
+
+  Widget showWeightInput() {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(44.0, 22.0, 44.0, 0.0),
+      child: TextFormField(
+        maxLines: 1,
+        keyboardType: TextInputType.number,
+        autofocus: false,
+        textAlign: TextAlign.center,
+        decoration: InputDecoration(
+          hintText: 'Weight',
+          contentPadding: new EdgeInsets.symmetric(vertical: 18.0, horizontal: 0.0),
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30)
+          ),
+        ),
+        validator: (value) => value.isEmpty ? 'Please fill the weight field' : null,
+        onSaved: (value) => _weight = value.trim(),
       ),
     );
   }
 
   Widget showSubmitButton() {
     return new Padding(
-        padding:EdgeInsets.fromLTRB(45.0, 45.0, 22.0, 45.0),
+        padding:EdgeInsets.fromLTRB(44.0, 30.0, 44.0, 45.0),
         child: SizedBox(
           height: 55.0,
           child: new RaisedButton(
@@ -101,6 +154,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   void saveData() {
-
+//    Navigator.push(context, route)
   }
 }
