@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class Dashboard extends StatefulWidget {
+class Settings extends StatefulWidget {
   @override
-  _DashboardState createState() => _DashboardState();
+  _SettingsState createState() => _SettingsState();
 }
 
-class _DashboardState extends State<Dashboard> {
+class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dashboard'),
+        title: Text('Settings'),
         automaticallyImplyLeading: false,
       ),
     );

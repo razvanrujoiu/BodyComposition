@@ -1,4 +1,5 @@
 import 'package:bodycomposition/Utils/HexColor.dart';
+import 'package:bodycomposition/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:bodycomposition/services/authentication.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -7,8 +8,8 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key key, this.auth, this.userId, this.logoutCallback})
+class EnrollmentPage extends StatefulWidget {
+  EnrollmentPage({Key key, this.auth, this.userId, this.logoutCallback})
       : super(key: key);
 
   final BaseAuth auth;
@@ -16,10 +17,10 @@ class HomePage extends StatefulWidget {
   final String userId;
 
   @override
-  State<StatefulWidget> createState() => new _HomePageState();
+  State<StatefulWidget> createState() => new _EnrollmentPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _EnrollmentPageState extends State<EnrollmentPage> {
 
   final FirebaseDatabase _database = FirebaseDatabase.instance;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -165,6 +166,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   void saveData() {
-//    Navigator.push(context, route)
+    Navigator.push(context,
+        MaterialPageRoute(
+            builder: (BuildContext context) { return new Home(); }
+            )
+    );
   }
 }
