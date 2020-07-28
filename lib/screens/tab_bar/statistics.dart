@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class Settings extends StatefulWidget {
+class Statistics extends StatefulWidget {
   @override
-  _SettingsState createState() => _SettingsState();
+  _StatisticsState createState() => _StatisticsState();
 }
 
-class _SettingsState extends State<Settings> {
+class _StatisticsState extends State<Statistics> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Settings'),
+        title: Text('Chats'),
         automaticallyImplyLeading: false,
       ),
     );

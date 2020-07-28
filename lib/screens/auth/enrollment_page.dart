@@ -1,5 +1,5 @@
 import 'package:bodycomposition/Utils/HexColor.dart';
-import 'package:bodycomposition/screens/home.dart';
+import 'package:bodycomposition/screens/tab_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:bodycomposition/services/authentication.dart';
 import 'package:firebase_database/firebase_database.dart';
