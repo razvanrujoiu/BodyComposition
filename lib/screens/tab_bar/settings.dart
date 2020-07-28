@@ -21,19 +21,20 @@ class _SettingsState extends State<Settings> {
         automaticallyImplyLeading: false,
       ),
       backgroundColor: Colors.grey.shade300,
-      body: Center(
+      body: Align(
+        alignment: Alignment.bottomCenter,
         child: Container(
             child: Padding(
-                padding: EdgeInsets.fromLTRB(0.0, 45.0, 0.0, 10.0),
+                padding: EdgeInsets.fromLTRB(0.0, 40.0, 0.0, 10.0),
                 child: SizedBox(
-                  height: 55.0,
+                  height: 50.0,
                   child: new RaisedButton(
                     elevation: 5.0,
                     shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(30.0)),
                     color: Colors.blue,
                     child: new Text('Logout',
-                        style: new TextStyle(fontSize: 20.0, color: Colors.white)),
+                        style: new TextStyle(fontSize: 18.0, color: Colors.white)),
                     onPressed: didTapLogout,
                   ),
                 )

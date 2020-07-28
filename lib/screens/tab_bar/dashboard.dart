@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 
 class Dashboard extends StatefulWidget {
 
-
-
   @override
   _DashboardState createState() => _DashboardState();
 }
@@ -19,7 +17,18 @@ class _DashboardState extends State<Dashboard> {
       appBar: AppBar(
         title: Text('Dashboard'),
         automaticallyImplyLeading: false,
-      ), backgroundColor: Colors.grey.shade300
+      ), backgroundColor: Colors.grey.shade300,
+      body: ListView(
+        children: <Widget>[
+          weightWidget(),
+        ],
+      ),
+    );
+  }
+
+  Widget weightWidget() {
+    return new Container(
+      child: Text('Test'),
     );
   }
 }
