@@ -92,7 +92,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        backgroundColor: HexColor.fromHex('#CFF9FE'),
+        backgroundColor: HexColor.fromHex('#e6fcfe'),
         body: Stack(
           children: <Widget>[
             _showForm(),

@@ -1,4 +1,5 @@
 import 'package:bodycomposition/Utils/HexColor.dart';
+import 'package:bodycomposition/screens/auth/enrollment_page.dart';
 import 'package:bodycomposition/screens/tab_bar/dashboard.dart';
 import 'package:bodycomposition/screens/tab_bar/profile.dart';
 import 'package:bodycomposition/screens/tab_bar/settings.dart';
